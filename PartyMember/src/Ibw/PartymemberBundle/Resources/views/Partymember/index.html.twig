@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>党员信息库</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>党员类别</th>
+                <th>加入组织日期</th>
+                <th>转正日期</th>
+                <th>所属党支部</th>
+                <th>联系电话</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('ibw_partymember_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.StuNo }}</td>
+                <td>{{ entity.Name }}</td>
+                <td>{{ entity.Sex }}</td>
+                <td>{{ entity.Class }}</td>
+                <td>{% if entity.joindate %}{{ entity.joindate|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if entity.Fulldate %}{{ entity.Fulldate|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.Branch }}</td>
+                <td>{{ entity.MobPho }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('ibw_partymember_show', { 'id': entity.id }) }}">查看</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('ibw_partymember_edit', { 'id': entity.id }) }}">编辑</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('ibw_partymember_new') }}">
+                新建党员
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

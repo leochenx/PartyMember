@@ -1,0 +1,13 @@
+ibw_partymember_homepage:
+    pattern:  /
+    defaults: { _controller: IbwPartymemberBundle:Partymember:index }
+IbwPartymemberBundle_job:
+        resource: "@IbwPartymemberBundle/Resources/config/routing/partymember.yml"
+        prefix:   /partymember
+login:
+    pattern:   /login
+    defaults:  { _controller: IbwPartymemberBundle:Default:login }
+login_check:
+    pattern:   /login_check
+logout:
+    pattern:   /logout

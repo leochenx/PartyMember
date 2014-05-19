@@ -1,0 +1,40 @@
+Ibw\PartymemberBundle\Entity\Partymember:
+    type: entity
+    table: party_member
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        StuNo:
+            type: string
+            length: 255
+            unique: true
+        Name:
+            type: string
+            length: 255           
+        Sex:
+            type: string
+            length: 2
+        Class:
+            type: string
+            length: 255
+        join_date:
+            type: datetime 
+        Full_date:
+            type: datetime                                             
+        Branch:
+            type: string
+            length: 255    
+        MobPho:
+            type: string
+            length: 11
+            unique: true 
+        created_at:
+            type: datetime      
+        updated_at:
+            type: datetime
+            nullable: true                
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

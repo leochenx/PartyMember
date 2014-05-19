@@ -1,0 +1,30 @@
+ibw_partymember:
+    pattern:  /
+    defaults: { _controller: "IbwPartymemberBundle:Partymember:index" }
+
+ibw_partymember_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "IbwPartymemberBundle:Partymember:show" }
+
+ibw_partymember_new:
+    pattern:  /new
+    defaults: { _controller: "IbwPartymemberBundle:Partymember:new" }
+
+ibw_partymember_create:
+    pattern:  /create
+    defaults: { _controller: "IbwPartymemberBundle:Partymember:create" }
+    requirements: { _method: post }
+
+ibw_partymember_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "IbwPartymemberBundle:Partymember:edit" }
+
+ibw_partymember_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "IbwPartymemberBundle:Partymember:update" }
+    requirements: { _method: post|put }
+
+ibw_partymember_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "IbwPartymemberBundle:Partymember:delete" }
+    requirements: { _method: post|delete }
