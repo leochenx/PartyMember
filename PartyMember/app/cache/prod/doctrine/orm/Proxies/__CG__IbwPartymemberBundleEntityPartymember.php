@@ -64,10 +64,10 @@ class Partymember extends \Ibw\PartymemberBundle\Entity\Partymember implements \
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'StuNo', 'Name', 'Sex', 'Class', 'join_date', 'Full_date', 'Branch', 'MobPho', 'created_at', 'updated_at');
+            return array('__isInitialized__', 'id', 'student_no', 'name', 'gender', 'nation', 'birthplace', 'idcard', 'birthday', 'branch', 'mobile', 'home_phone', 'grade', 'major', 'enter_date', 'top_edu', 'top_edu_begin', 'top_edu_end', 'state', 'class', 'pre_department', 'pre_date', 'pre_due_date', 'duty', 'first_apply_date', 'recent_apply_date', 'activist_date', 'to_admin_date', 'training_date', 'contact1', 'con1_phone', 'contact2', 'con2_phone', 'apply_no', 'admit_date', 'approve_date', 'full_date', 'intro1', 'intro2', 'out_reason', 'out_type', 'out_department', 'out_department_name', 'out_department_code', 'remark', 'created_at', 'updated_at');
         }
 
-        return array('__isInitialized__', 'id', 'StuNo', 'Name', 'Sex', 'Class', 'join_date', 'Full_date', 'Branch', 'MobPho', 'created_at', 'updated_at');
+        return array('__isInitialized__', 'id', 'student_no', 'name', 'gender', 'nation', 'birthplace', 'idcard', 'birthday', 'branch', 'mobile', 'home_phone', 'grade', 'major', 'enter_date', 'top_edu', 'top_edu_begin', 'top_edu_end', 'state', 'class', 'pre_department', 'pre_date', 'pre_due_date', 'duty', 'first_apply_date', 'recent_apply_date', 'activist_date', 'to_admin_date', 'training_date', 'contact1', 'con1_phone', 'contact2', 'con2_phone', 'apply_no', 'admit_date', 'approve_date', 'full_date', 'intro1', 'intro2', 'out_reason', 'out_type', 'out_department', 'out_department_name', 'out_department_code', 'remark', 'created_at', 'updated_at');
     }
 
     /**
@@ -191,23 +191,23 @@ class Partymember extends \Ibw\PartymemberBundle\Entity\Partymember implements \
     /**
      * {@inheritDoc}
      */
-    public function setStuNo($stuNo)
+    public function setStudentNo($studentNo)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStuNo', array($stuNo));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStudentNo', array($studentNo));
 
-        return parent::setStuNo($stuNo);
+        return parent::setStudentNo($studentNo);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getStuNo()
+    public function getStudentNo()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStuNo', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStudentNo', array());
 
-        return parent::getStuNo();
+        return parent::getStudentNo();
     }
 
     /**
@@ -235,89 +235,111 @@ class Partymember extends \Ibw\PartymemberBundle\Entity\Partymember implements \
     /**
      * {@inheritDoc}
      */
-    public function setSex($sex)
+    public function setGender($gender)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSex', array($sex));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGender', array($gender));
 
-        return parent::setSex($sex);
+        return parent::setGender($gender);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getSex()
+    public function getGender()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSex', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGender', array());
 
-        return parent::getSex();
+        return parent::getGender();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setClass($class)
+    public function setNation($nation)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setClass', array($class));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNation', array($nation));
 
-        return parent::setClass($class);
+        return parent::setNation($nation);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getClass()
+    public function getNation()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getClass', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNation', array());
 
-        return parent::getClass();
+        return parent::getNation();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setJoinDate($joinDate)
+    public function setBirthplace($birthplace)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setJoinDate', array($joinDate));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBirthplace', array($birthplace));
 
-        return parent::setJoinDate($joinDate);
+        return parent::setBirthplace($birthplace);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getJoinDate()
+    public function getBirthplace()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getJoinDate', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBirthplace', array());
 
-        return parent::getJoinDate();
+        return parent::getBirthplace();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setFullDate($fullDate)
+    public function setIdcard($idcard)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFullDate', array($fullDate));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIdcard', array($idcard));
 
-        return parent::setFullDate($fullDate);
+        return parent::setIdcard($idcard);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getFullDate()
+    public function getIdcard()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFullDate', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIdcard', array());
 
-        return parent::getFullDate();
+        return parent::getIdcard();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setBirthday($birthday)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBirthday', array($birthday));
+
+        return parent::setBirthday($birthday);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getBirthday()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBirthday', array());
+
+        return parent::getBirthday();
     }
 
     /**
@@ -345,23 +367,771 @@ class Partymember extends \Ibw\PartymemberBundle\Entity\Partymember implements \
     /**
      * {@inheritDoc}
      */
-    public function setMobPho($mobPho)
+    public function setMobile($mobile)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMobPho', array($mobPho));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMobile', array($mobile));
 
-        return parent::setMobPho($mobPho);
+        return parent::setMobile($mobile);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getMobPho()
+    public function getMobile()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMobPho', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMobile', array());
 
-        return parent::getMobPho();
+        return parent::getMobile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setHomePhone($homePhone)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setHomePhone', array($homePhone));
+
+        return parent::setHomePhone($homePhone);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getHomePhone()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHomePhone', array());
+
+        return parent::getHomePhone();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setGrade($grade)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGrade', array($grade));
+
+        return parent::setGrade($grade);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getGrade()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGrade', array());
+
+        return parent::getGrade();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setMajor($major)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMajor', array($major));
+
+        return parent::setMajor($major);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMajor()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMajor', array());
+
+        return parent::getMajor();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEnterDate($enterDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnterDate', array($enterDate));
+
+        return parent::setEnterDate($enterDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEnterDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEnterDate', array());
+
+        return parent::getEnterDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setTopEdu($topEdu)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTopEdu', array($topEdu));
+
+        return parent::setTopEdu($topEdu);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTopEdu()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTopEdu', array());
+
+        return parent::getTopEdu();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setTopEduBegin($topEduBegin)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTopEduBegin', array($topEduBegin));
+
+        return parent::setTopEduBegin($topEduBegin);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTopEduBegin()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTopEduBegin', array());
+
+        return parent::getTopEduBegin();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setTopEduEnd($topEduEnd)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTopEduEnd', array($topEduEnd));
+
+        return parent::setTopEduEnd($topEduEnd);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTopEduEnd()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTopEduEnd', array());
+
+        return parent::getTopEduEnd();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setState($state)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setState', array($state));
+
+        return parent::setState($state);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getState()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getState', array());
+
+        return parent::getState();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setClass($class)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setClass', array($class));
+
+        return parent::setClass($class);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getClass()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getClass', array());
+
+        return parent::getClass();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPreDepartment($preDepartment)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPreDepartment', array($preDepartment));
+
+        return parent::setPreDepartment($preDepartment);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPreDepartment()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPreDepartment', array());
+
+        return parent::getPreDepartment();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPreDate($preDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPreDate', array($preDate));
+
+        return parent::setPreDate($preDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPreDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPreDate', array());
+
+        return parent::getPreDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPreDueDate($preDueDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPreDueDate', array($preDueDate));
+
+        return parent::setPreDueDate($preDueDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPreDueDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPreDueDate', array());
+
+        return parent::getPreDueDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDuty($duty)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDuty', array($duty));
+
+        return parent::setDuty($duty);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDuty()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDuty', array());
+
+        return parent::getDuty();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setFirstApplyDate($firstApplyDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFirstApplyDate', array($firstApplyDate));
+
+        return parent::setFirstApplyDate($firstApplyDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getFirstApplyDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFirstApplyDate', array());
+
+        return parent::getFirstApplyDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRecentApplyDate($recentApplyDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRecentApplyDate', array($recentApplyDate));
+
+        return parent::setRecentApplyDate($recentApplyDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRecentApplyDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRecentApplyDate', array());
+
+        return parent::getRecentApplyDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setActivistDate($activistDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActivistDate', array($activistDate));
+
+        return parent::setActivistDate($activistDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getActivistDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActivistDate', array());
+
+        return parent::getActivistDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setToAdminDate($toAdminDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setToAdminDate', array($toAdminDate));
+
+        return parent::setToAdminDate($toAdminDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getToAdminDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getToAdminDate', array());
+
+        return parent::getToAdminDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setTrainingDate($trainingDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTrainingDate', array($trainingDate));
+
+        return parent::setTrainingDate($trainingDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTrainingDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTrainingDate', array());
+
+        return parent::getTrainingDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setContact1($contact1)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContact1', array($contact1));
+
+        return parent::setContact1($contact1);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getContact1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContact1', array());
+
+        return parent::getContact1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCon1Phone($con1Phone)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCon1Phone', array($con1Phone));
+
+        return parent::setCon1Phone($con1Phone);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCon1Phone()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCon1Phone', array());
+
+        return parent::getCon1Phone();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setContact2($contact2)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContact2', array($contact2));
+
+        return parent::setContact2($contact2);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getContact2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContact2', array());
+
+        return parent::getContact2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCon2Phone($con2Phone)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCon2Phone', array($con2Phone));
+
+        return parent::setCon2Phone($con2Phone);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCon2Phone()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCon2Phone', array());
+
+        return parent::getCon2Phone();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setApplyNo($applyNo)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setApplyNo', array($applyNo));
+
+        return parent::setApplyNo($applyNo);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getApplyNo()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getApplyNo', array());
+
+        return parent::getApplyNo();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAdmitDate($admitDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAdmitDate', array($admitDate));
+
+        return parent::setAdmitDate($admitDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAdmitDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAdmitDate', array());
+
+        return parent::getAdmitDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setApproveDate($approveDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setApproveDate', array($approveDate));
+
+        return parent::setApproveDate($approveDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getApproveDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getApproveDate', array());
+
+        return parent::getApproveDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setFullDate($fullDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFullDate', array($fullDate));
+
+        return parent::setFullDate($fullDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getFullDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFullDate', array());
+
+        return parent::getFullDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setIntro1($intro1)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIntro1', array($intro1));
+
+        return parent::setIntro1($intro1);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getIntro1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIntro1', array());
+
+        return parent::getIntro1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setIntro2($intro2)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIntro2', array($intro2));
+
+        return parent::setIntro2($intro2);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getIntro2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIntro2', array());
+
+        return parent::getIntro2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setOutReason($outReason)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOutReason', array($outReason));
+
+        return parent::setOutReason($outReason);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOutReason()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOutReason', array());
+
+        return parent::getOutReason();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setOutType($outType)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOutType', array($outType));
+
+        return parent::setOutType($outType);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOutType()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOutType', array());
+
+        return parent::getOutType();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setOutDepartment($outDepartment)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOutDepartment', array($outDepartment));
+
+        return parent::setOutDepartment($outDepartment);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOutDepartment()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOutDepartment', array());
+
+        return parent::getOutDepartment();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setOutDepartmentName($outDepartmentName)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOutDepartmentName', array($outDepartmentName));
+
+        return parent::setOutDepartmentName($outDepartmentName);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOutDepartmentName()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOutDepartmentName', array());
+
+        return parent::getOutDepartmentName();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setOutDepartmentCode($outDepartmentCode)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOutDepartmentCode', array($outDepartmentCode));
+
+        return parent::setOutDepartmentCode($outDepartmentCode);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOutDepartmentCode()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOutDepartmentCode', array());
+
+        return parent::getOutDepartmentCode();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRemark($remark)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRemark', array($remark));
+
+        return parent::setRemark($remark);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRemark()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRemark', array());
+
+        return parent::getRemark();
     }
 
     /**

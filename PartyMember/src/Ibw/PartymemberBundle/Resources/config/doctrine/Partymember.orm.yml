@@ -6,30 +6,124 @@ Ibw\PartymemberBundle\Entity\Partymember:
             type: integer
             generator: { strategy: AUTO }
     fields:
-        StuNo:
+        student_no:
             type: string
-            length: 255
+            length: 32
             unique: true
-        Name:
+        name:
             type: string
-            length: 255           
-        Sex:
+            length: 8           
+        gender:
             type: string
             length: 2
-        Class:
+        nation:
             type: string
-            length: 255
-        join_date:
-            type: datetime 
-        Full_date:
-            type: datetime                                             
-        Branch:
+            length: 8          
+        birthplace:
+            type: string
+            length: 8  
+        idcard:
+            type: string
+            length: 32       
+        birthday:
+            type: datetime                                                               
+        branch:
             type: string
             length: 255    
-        MobPho:
+        mobile:
             type: string
             length: 11
+            unique: true
+        home_phone:
+            type: string
+            length: 16
             unique: true 
+        grade:
+            type: string
+            length: 8
+        major:
+            type: string
+            length: 16
+        enter_date:
+            type: datetime 
+        top_edu:
+            type: string
+            length: 8
+        top_edu_begin:
+            type: datetime 
+        top_edu_end:
+            type: datetime 
+        state:
+            type: string
+            length: 8
+        class:
+            type: string
+            length: 8
+        pre_department:
+            type: string
+            length: 16
+        pre_date:
+            type: datetime
+        pre_due_date:
+            type: datetime
+        duty:
+            type: string
+            length: 8
+        first_apply_date:
+            type: datetime
+        recent_apply_date:
+            type: datetime
+        activist_date:
+            type: datetime
+        to_admin_date:
+            type: datetime
+        training_date:
+            type: datetime
+        contact1:
+            type: string
+            length: 8
+        con1_phone:
+            type: string
+            length: 11
+        contact2:
+            type: string
+            length: 8
+        con2_phone:
+            type: string
+            length: 11
+        apply_no:
+            type: string
+            length: 32
+        admit_date:
+            type: datetime
+        approve_date:
+            type: datetime
+        full_date:
+            type: datetime
+        intro1:
+            type: string
+            length: 8
+        intro2:
+            type: string
+            length: 8
+        out_reason:
+            type: string
+            length: 128
+        out_type:
+            type: string
+            length: 32
+        out_department:
+            type: string
+            length: 32
+        out_department_name:
+            type: string
+            length: 32
+        out_department_code:
+            type: string
+            length: 32
+        remark:
+            type: string
+            length: 100            
         created_at:
             type: datetime      
         updated_at:

@@ -19,23 +19,21 @@ class PartymemberAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('StuNo')
-            ->add('Name')
-            ->add('Sex')
-            ->add('join_date')
-            ->add('Full_date')
-            ->add('Branch')
-            ->add('MobPho')
+            ->add('student_no',null,array('label' => '学号'))
+            ->add('name',null,array('label' => '姓名'))
+            ->add('gender',null,array('label' => '性别'))
+            ->add('approve_date',null,array('label' => '加入组织时间'))
+            ->add('full_date',null,array('label' => '转正日期'))
+            ->add('branch',null,array('label' => '所属党支部'))
+            ->add('mobile',null,array('label' => '手机'))
         ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('StuNo')
-            ->add('Name')
-            ->add('Sex')
-            ->add('Branch')
+            ->add('student_no',null,array('label' => '学号'))
+            ->add('name',null,array('label' => '姓名'))
 
         ;
     }
@@ -43,18 +41,20 @@ class PartymemberAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('StuNo')
-            ->add('Name')
-            ->add('join_date')
-            ->add('Full_date')
-            ->add('Branch')
-            ->add('MobPho')
+            ->addIdentifier('student_no',null,array('label' => '学号'))
+            ->add('name',null,array('label' => '姓名'))
+            ->add('gender',null,array('label' => '性别'))
+            ->add('class',null,array('label' => '党员类别'))
+            ->add('approve_date',null,array('label' => '加入组织时间'))
+            ->add('full_date',array('label' => '转正时间'))
+            ->add('branch',null,array('label' => '所属党支部'))
+            ->add('mobile',null,array('label' => '联系电话'))
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'view' => array(),
+                    'show' => array(),
                     'edit' => array(),
                     'delete' => array(),
-                )
+                ),'label'=>'操作'
             ))
         ;
     }
@@ -62,11 +62,11 @@ class PartymemberAdmin extends Admin
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('StuNo')
-            ->add('Name')
-            ->add('Sex')
-            ->add('Branch')
-            ->add('MobPho')
+            ->add('student_no')
+            ->add('name')
+            ->add('gender')
+            ->add('branch')
+            ->add('mobile')
         ;
     }
 }

@@ -9,8 +9,10 @@ services:
     ibw.partymember.admin.partymember:
         class: Ibw\PartymemberBundle\Admin\PartymemberAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: partymember, label: Partymembers }
+            - { name: sonata.admin, manager_type: orm, group: 党员, label: 党员信息 }
         arguments:
             - ~
             - Ibw\PartymemberBundle\Entity\Partymember
             - 'IbwPartymemberBundle:PartymemberAdmin'
+        calls:
+            - [ setLabelTranslatorStrategy, ["@sonata.admin.label.strategy.underscore"]]

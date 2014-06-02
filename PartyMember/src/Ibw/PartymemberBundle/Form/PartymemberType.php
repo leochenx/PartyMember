@@ -15,14 +15,14 @@ class PartymemberType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('StuNo')
-            ->add('Name')
-            ->add('Sex')
-            ->add('Class')
-            ->add('join_date')
-            ->add('Full_date')
-            ->add('Branch')
-            ->add('MobPho')
+            ->add('student_no')
+            ->add('name')
+            ->add('gender')
+            ->add('class')
+            ->add('approve_date')
+            ->add('full_date')
+            ->add('branch')
+            ->add('mobile')
             ->add('created_at')
             ->add('updated_at')
         ;

@@ -22,14 +22,14 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('ibw_partymember_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.StuNo }}</td>
-                <td>{{ entity.Name }}</td>
-                <td>{{ entity.Sex }}</td>
-                <td>{{ entity.Class }}</td>
-                <td>{% if entity.joindate %}{{ entity.joindate|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if entity.Fulldate %}{{ entity.Fulldate|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ entity.Branch }}</td>
-                <td>{{ entity.MobPho }}</td>
+                <td>{{ entity.gender }}</td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.gender }}</td>
+                <td>{{ entity.class }}</td>
+                <td>{% if entity.birthday %}{{ entity.birthday|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if entity.birthday %}{{ entity.birthday|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.branch }}</td>
+                <td>{{ entity.mobile }}</td>
                 <td>
                 <ul>
                     <li>

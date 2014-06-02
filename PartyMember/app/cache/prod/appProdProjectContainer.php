@@ -118,12 +118,11 @@ class appProdProjectContainer extends Container
             'security.encoder_factory' => 'getSecurity_EncoderFactoryService',
             'security.firewall' => 'getSecurity_FirewallService',
             'security.firewall.map.context.dev' => 'getSecurity_Firewall_Map_Context_DevService',
-            'security.firewall.map.context.login' => 'getSecurity_Firewall_Map_Context_LoginService',
             'security.firewall.map.context.secured_area' => 'getSecurity_Firewall_Map_Context_SecuredAreaService',
             'security.rememberme.response_listener' => 'getSecurity_Rememberme_ResponseListenerService',
             'security.role_hierarchy' => 'getSecurity_RoleHierarchyService',
             'security.secure_random' => 'getSecurity_SecureRandomService',
-            'security.user.provider.concrete.in_memory' => 'getSecurity_User_Provider_Concrete_InMemoryService',
+            'security.user.provider.concrete.main' => 'getSecurity_User_Provider_Concrete_MainService',
             'security.validator.user_password' => 'getSecurity_Validator_UserPasswordService',
             'sensio_framework_extra.cache.listener' => 'getSensioFrameworkExtra_Cache_ListenerService',
             'sensio_framework_extra.controller.listener' => 'getSensioFrameworkExtra_Controller_ListenerService',
@@ -317,12 +316,12 @@ class appProdProjectContainer extends Container
     }
     protected function getAnnotationReaderService()
     {
-        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), 'C:/wamp/www/PartyMember/app/cache/prod/annotations', false);
+        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), 'E:/workspace/git/PartyMember/PartyMember/app/cache/prod/annotations', false);
     }
     protected function getAssetic_AssetManagerService()
     {
-        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('C:/wamp/www/PartyMember/app/cache/prod/assetic/config'), false)));
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($this->get('templating.loader'), '', 'C:/wamp/www/PartyMember/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
+        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('E:/workspace/git/PartyMember/PartyMember/app/cache/prod/assetic/config'), false)));
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($this->get('templating.loader'), '', 'E:/workspace/git/PartyMember/PartyMember/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
         return $instance;
     }
     protected function getAssetic_Filter_CssrewriteService()
@@ -341,7 +340,7 @@ class appProdProjectContainer extends Container
     {
         $a = $this->get('kernel');
         $b = $this->get('templating.filename_parser');
-        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, 'C:/wamp/www/PartyMember/app/Resources');
+        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, 'E:/workspace/git/PartyMember/PartyMember/app/Resources');
         return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => new \Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer($this), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 3 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c), 4 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
     }
     protected function getDebug_EmergencyLoggerListenerService()
@@ -363,12 +362,12 @@ class appProdProjectContainer extends Container
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
         $a = new \Doctrine\Common\Cache\ArrayCache();
-        $a->setNamespace('sf2orm_default_f31dd3cd7ae2fef7d8f6cbfc6712f39775d000f2c51e1a4424c753af315c1f67');
+        $a->setNamespace('sf2orm_default_63b676191f4899cad2513d2ab94b23ae2158e41a9d37a754a5a1cf8fde69f320');
         $b = new \Doctrine\Common\Cache\ArrayCache();
-        $b->setNamespace('sf2orm_default_f31dd3cd7ae2fef7d8f6cbfc6712f39775d000f2c51e1a4424c753af315c1f67');
+        $b->setNamespace('sf2orm_default_63b676191f4899cad2513d2ab94b23ae2158e41a9d37a754a5a1cf8fde69f320');
         $c = new \Doctrine\Common\Cache\ArrayCache();
-        $c->setNamespace('sf2orm_default_f31dd3cd7ae2fef7d8f6cbfc6712f39775d000f2c51e1a4424c753af315c1f67');
-        $d = new \Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver(array('C:\\wamp\\www\\PartyMember\\src\\Ibw\\PartymemberBundle\\Resources\\config\\doctrine' => 'Ibw\\PartymemberBundle\\Entity'));
+        $c->setNamespace('sf2orm_default_63b676191f4899cad2513d2ab94b23ae2158e41a9d37a754a5a1cf8fde69f320');
+        $d = new \Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver(array('E:\\workspace\\git\\PartyMember\\PartyMember\\src\\Ibw\\PartymemberBundle\\Resources\\config\\doctrine' => 'Ibw\\PartymemberBundle\\Entity'));
         $d->setGlobalBasename('mapping');
         $e = new \Doctrine\ORM\Mapping\Driver\DriverChain();
         $e->addDriver($d, 'Ibw\\PartymemberBundle\\Entity');
@@ -378,7 +377,7 @@ class appProdProjectContainer extends Container
         $f->setQueryCacheImpl($b);
         $f->setResultCacheImpl($c);
         $f->setMetadataDriverImpl($e);
-        $f->setProxyDir('C:/wamp/www/PartyMember/app/cache/prod/doctrine/orm/Proxies');
+        $f->setProxyDir('E:/workspace/git/PartyMember/PartyMember/app/cache/prod/doctrine/orm/Proxies');
         $f->setProxyNamespace('Proxies');
         $f->setAutoGenerateProxyClasses(false);
         $f->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
@@ -425,7 +424,7 @@ class appProdProjectContainer extends Container
     }
     protected function getFileLocatorService()
     {
-        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), 'C:/wamp/www/PartyMember/app/Resources');
+        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), 'E:/workspace/git/PartyMember/PartyMember/app/Resources');
     }
     protected function getFilesystemService()
     {
@@ -636,6 +635,7 @@ class appProdProjectContainer extends Container
     protected function getIbw_Partymember_Admin_PartymemberService()
     {
         $instance = new \Ibw\PartymemberBundle\Admin\PartymemberAdmin('ibw.partymember.admin.partymember', 'Ibw\\PartymemberBundle\\Entity\\Partymember', 'IbwPartymemberBundle:PartymemberAdmin');
+        $instance->setLabelTranslatorStrategy($this->get('sonata.admin.label.strategy.underscore'));
         $instance->setManagerType('orm');
         $instance->setModelManager($this->get('sonata.admin.manager.orm'));
         $instance->setFormContractor($this->get('sonata.admin.builder.orm_form'));
@@ -649,8 +649,7 @@ class appProdProjectContainer extends Container
         $instance->setSecurityHandler($this->get('sonata.admin.security.handler'));
         $instance->setMenuFactory($this->get('knp_menu.factory'));
         $instance->setRouteBuilder($this->get('sonata.admin.route.path_info'));
-        $instance->setLabelTranslatorStrategy($this->get('sonata.admin.label.strategy.native'));
-        $instance->setLabel('Partymembers');
+        $instance->setLabel('党员信息');
         $instance->setPersistFilters(false);
         $instance->setTemplates(array('user_block' => 'SonataAdminBundle:Core:user_block.html.twig', 'layout' => 'SonataAdminBundle::standard_layout.html.twig', 'ajax' => 'SonataAdminBundle::ajax_layout.html.twig', 'dashboard' => 'SonataAdminBundle:Core:dashboard.html.twig', 'list' => 'SonataAdminBundle:CRUD:list.html.twig', 'show' => 'SonataAdminBundle:CRUD:show.html.twig', 'edit' => 'SonataAdminBundle:CRUD:edit.html.twig', 'history' => 'SonataAdminBundle:CRUD:history.html.twig', 'history_revision_timestamp' => 'SonataAdminBundle:CRUD:history_revision_timestamp.html.twig', 'acl' => 'SonataAdminBundle:CRUD:acl.html.twig', 'action' => 'SonataAdminBundle:CRUD:action.html.twig', 'short_object_description' => 'SonataAdminBundle:Helper:short-object-description.html.twig', 'preview' => 'SonataAdminBundle:CRUD:preview.html.twig', 'list_block' => 'SonataAdminBundle:Block:block_admin_list.html.twig', 'delete' => 'SonataAdminBundle:CRUD:delete.html.twig', 'batch' => 'SonataAdminBundle:CRUD:list__batch.html.twig', 'select' => 'SonataAdminBundle:CRUD:list__select.html.twig', 'batch_confirmation' => 'SonataAdminBundle:CRUD:batch_confirmation.html.twig', 'inner_list_row' => 'SonataAdminBundle:CRUD:list_inner_row.html.twig', 'base_list_field' => 'SonataAdminBundle:CRUD:base_list_field.html.twig', 'pager_links' => 'SonataAdminBundle:Pager:links.html.twig', 'pager_results' => 'SonataAdminBundle:Pager:results.html.twig', 'search' => 'SonataAdminBundle:Core:search.html.twig', 'search_result_block' => 'SonataAdminBundle:Block:block_search_result.html.twig'));
         $instance->setSecurityInformation(array());
@@ -704,7 +703,7 @@ class appProdProjectContainer extends Container
     }
     protected function getMonolog_Handler_NestedService()
     {
-        return $this->services['monolog.handler.nested'] = new \Monolog\Handler\StreamHandler('C:/wamp/www/PartyMember/app/logs/prod.log', 100, true);
+        return $this->services['monolog.handler.nested'] = new \Monolog\Handler\StreamHandler('E:/workspace/git/PartyMember/PartyMember/app/logs/prod.log', 100, true);
     }
     protected function getMonolog_Logger_DoctrineService()
     {
@@ -762,7 +761,7 @@ class appProdProjectContainer extends Container
     }
     protected function getRouterService()
     {
-        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, 'C:/wamp/www/PartyMember/app/config/routing.yml', array('cache_dir' => 'C:/wamp/www/PartyMember/app/cache/prod', 'debug' => false, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appProdUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appProdUrlMatcher', 'strict_requirements' => NULL), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, 'E:/workspace/git/PartyMember/PartyMember/app/config/routing.yml', array('cache_dir' => 'E:/workspace/git/PartyMember/PartyMember/app/cache/prod', 'debug' => false, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appProdUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appProdUrlMatcher', 'strict_requirements' => NULL), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
     protected function getRouterListenerService()
     {
@@ -793,19 +792,15 @@ class appProdProjectContainer extends Container
     }
     protected function getSecurity_EncoderFactoryService()
     {
-        return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array('Symfony\\Component\\Security\\Core\\User\\User' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\PlaintextPasswordEncoder', 'arguments' => array(0 => false))));
+        return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array('Ibw\\PartymemberBundle\\Entity\\User' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\MessageDigestPasswordEncoder', 'arguments' => array(0 => 'sha512', 1 => true, 2 => 5000))));
     }
     protected function getSecurity_FirewallService()
     {
-        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'), 'security.firewall.map.context.login' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/login$'), 'security.firewall.map.context.secured_area' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/'))), $this->get('event_dispatcher'));
+        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'), 'security.firewall.map.context.secured_area' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/'))), $this->get('event_dispatcher'));
     }
     protected function getSecurity_Firewall_Map_Context_DevService()
     {
         return $this->services['security.firewall.map.context.dev'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(), NULL);
-    }
-    protected function getSecurity_Firewall_Map_Context_LoginService()
-    {
-        return $this->services['security.firewall.map.context.login'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(), NULL);
     }
     protected function getSecurity_Firewall_Map_Context_SecuredAreaService()
     {
@@ -815,13 +810,15 @@ class appProdProjectContainer extends Container
         $d = $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE);
         $e = $this->get('http_kernel');
         $f = $this->get('security.authentication.manager');
-        $g = new \Symfony\Component\Security\Http\AccessMap();
-        $h = new \Symfony\Component\Security\Http\HttpUtils($d, $d);
-        $i = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $h, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($h, '_demo'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => '_demo_logout'));
-        $i->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
-        $j = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($h, array('login_path' => '_demo_login', 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false));
-        $j->setProviderKey('secured_area');
-        return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($g, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.in_memory')), 'secured_area', $a, $c), 2 => $i, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $h, 'secured_area', $j, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $h, array('login_path' => '_demo_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $g, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $h, 'secured_area', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $h, '_demo_login', false), NULL, NULL, $a));
+        $g = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin');
+        $h = new \Symfony\Component\Security\Http\AccessMap();
+        $h->add($g, array(0 => 'ROLE_ADMIN'), NULL);
+        $i = new \Symfony\Component\Security\Http\HttpUtils($d, $d);
+        $j = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $i, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($i, '/'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => '/logout'));
+        $j->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
+        $k = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($i, array('login_path' => '/login', 'default_target_path' => 'sonata_admin_redirect', 'always_use_default_target_path' => false, 'target_path_parameter' => '_target_path', 'use_referer' => false));
+        $k->setProviderKey('secured_area');
+        return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($h, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.main')), 'secured_area', $a, $c), 2 => $j, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $i, 'secured_area', $k, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $i, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '538c3d8d78847', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $h, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $i, 'secured_area', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $i, '/login', false), NULL, NULL, $a));
     }
     protected function getSecurity_Rememberme_ResponseListenerService()
     {
@@ -829,7 +826,7 @@ class appProdProjectContainer extends Container
     }
     protected function getSecurity_SecureRandomService()
     {
-        return $this->services['security.secure_random'] = new \Symfony\Component\Security\Core\Util\SecureRandom('C:/wamp/www/PartyMember/app/cache/prod/secure_random.seed', $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['security.secure_random'] = new \Symfony\Component\Security\Core\Util\SecureRandom('E:/workspace/git/PartyMember/PartyMember/app/cache/prod/secure_random.seed', $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
     protected function getSecurity_Validator_UserPasswordService()
     {
@@ -884,7 +881,7 @@ class appProdProjectContainer extends Container
     }
     protected function getSession_Storage_FilesystemService()
     {
-        return $this->services['session.storage.filesystem'] = new \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage('C:/wamp/www/PartyMember/app/cache/prod/sessions', 'MOCKSESSID', $this->get('session.storage.metadata_bag'));
+        return $this->services['session.storage.filesystem'] = new \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage('E:/workspace/git/PartyMember/PartyMember/app/cache/prod/sessions', 'MOCKSESSID', $this->get('session.storage.metadata_bag'));
     }
     protected function getSession_Storage_NativeService()
     {
@@ -1108,10 +1105,10 @@ class appProdProjectContainer extends Container
     }
     protected function getSonata_Admin_PoolService()
     {
-        $this->services['sonata.admin.pool'] = $instance = new \Sonata\AdminBundle\Admin\Pool($this, 'Jobeet Admin', 'bundles/sonataadmin/logo_title.png', array('html5_validate' => true, 'confirm_exit' => true, 'use_select2' => true, 'pager_links' => NULL));
+        $this->services['sonata.admin.pool'] = $instance = new \Sonata\AdminBundle\Admin\Pool($this, '党员信息系统', 'bundles/sonataadmin/logo_title.png', array('html5_validate' => true, 'confirm_exit' => true, 'use_select2' => true, 'pager_links' => NULL));
         $instance->setTemplates(array('user_block' => 'SonataAdminBundle:Core:user_block.html.twig', 'layout' => 'SonataAdminBundle::standard_layout.html.twig', 'ajax' => 'SonataAdminBundle::ajax_layout.html.twig', 'dashboard' => 'SonataAdminBundle:Core:dashboard.html.twig', 'search' => 'SonataAdminBundle:Core:search.html.twig', 'list' => 'SonataAdminBundle:CRUD:list.html.twig', 'show' => 'SonataAdminBundle:CRUD:show.html.twig', 'edit' => 'SonataAdminBundle:CRUD:edit.html.twig', 'preview' => 'SonataAdminBundle:CRUD:preview.html.twig', 'history' => 'SonataAdminBundle:CRUD:history.html.twig', 'acl' => 'SonataAdminBundle:CRUD:acl.html.twig', 'history_revision_timestamp' => 'SonataAdminBundle:CRUD:history_revision_timestamp.html.twig', 'action' => 'SonataAdminBundle:CRUD:action.html.twig', 'select' => 'SonataAdminBundle:CRUD:list__select.html.twig', 'list_block' => 'SonataAdminBundle:Block:block_admin_list.html.twig', 'search_result_block' => 'SonataAdminBundle:Block:block_search_result.html.twig', 'short_object_description' => 'SonataAdminBundle:Helper:short-object-description.html.twig', 'delete' => 'SonataAdminBundle:CRUD:delete.html.twig', 'batch' => 'SonataAdminBundle:CRUD:list__batch.html.twig', 'batch_confirmation' => 'SonataAdminBundle:CRUD:batch_confirmation.html.twig', 'inner_list_row' => 'SonataAdminBundle:CRUD:list_inner_row.html.twig', 'base_list_field' => 'SonataAdminBundle:CRUD:base_list_field.html.twig', 'pager_links' => 'SonataAdminBundle:Pager:links.html.twig', 'pager_results' => 'SonataAdminBundle:Pager:results.html.twig'));
         $instance->setAdminServiceIds(array(0 => 'ibw.partymember.admin.partymember'));
-        $instance->setAdminGroups(array('partymember' => array('label' => 'partymember', 'label_catalogue' => 'SonataAdminBundle', 'roles' => array(), 'items' => array(0 => 'ibw.partymember.admin.partymember'))));
+        $instance->setAdminGroups(array('党员' => array('label' => '党员', 'label_catalogue' => 'SonataAdminBundle', 'roles' => array(), 'items' => array(0 => 'ibw.partymember.admin.partymember'))));
         $instance->setAdminClasses(array('Ibw\\PartymemberBundle\\Entity\\Partymember' => array(0 => 'ibw.partymember.admin.partymember')));
         return $instance;
     }
@@ -1355,7 +1352,7 @@ class appProdProjectContainer extends Container
     }
     protected function getTemplating_Helper_CodeService()
     {
-        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, 'C:/wamp/www/PartyMember/app', 'UTF-8');
+        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, 'E:/workspace/git/PartyMember/PartyMember/app', 'UTF-8');
     }
     protected function getTemplating_Helper_FormService()
     {
@@ -1367,7 +1364,7 @@ class appProdProjectContainer extends Container
     protected function getTemplating_Helper_LogoutUrlService()
     {
         $this->services['templating.helper.logout_url'] = $instance = new \Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper($this, $this->get('router'));
-        $instance->registerListener('secured_area', '_demo_logout', 'logout', '_csrf_token', NULL);
+        $instance->registerListener('secured_area', '/logout', 'logout', '_csrf_token', NULL);
         return $instance;
     }
     protected function getTemplating_Helper_RequestService()
@@ -1536,185 +1533,185 @@ class appProdProjectContainer extends Container
     }
     protected function getTranslator_DefaultService()
     {
-        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => 'C:/wamp/www/PartyMember/app/cache/prod/translations', 'debug' => false));
+        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => 'E:/workspace/git/PartyMember/PartyMember/app/cache/prod/translations', 'debug' => false));
         $instance->setFallbackLocales(array(0 => 'en'));
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.af.xlf', 'af', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ar.xlf', 'ar', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.bg.xlf', 'bg', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ca.xlf', 'ca', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cs.xlf', 'cs', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cy.xlf', 'cy', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.da.xlf', 'da', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.de.xlf', 'de', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.el.xlf', 'el', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.en.xlf', 'en', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.es.xlf', 'es', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.et.xlf', 'et', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.eu.xlf', 'eu', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fa.xlf', 'fa', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fi.xlf', 'fi', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fr.xlf', 'fr', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.gl.xlf', 'gl', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.he.xlf', 'he', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hr.xlf', 'hr', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hu.xlf', 'hu', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hy.xlf', 'hy', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.id.xlf', 'id', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.it.xlf', 'it', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ja.xlf', 'ja', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lb.xlf', 'lb', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lt.xlf', 'lt', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.mn.xlf', 'mn', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nb.xlf', 'nb', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nl.xlf', 'nl', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.no.xlf', 'no', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pl.xlf', 'pl', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt.xlf', 'pt', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt_BR.xlf', 'pt_BR', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ro.xlf', 'ro', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ru.xlf', 'ru', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sk.xlf', 'sk', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sl.xlf', 'sl', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sq.xlf', 'sq', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Latn.xlf', 'sr_Latn', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sv.xlf', 'sv', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.th.xlf', 'th', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.tr.xlf', 'tr', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.uk.xlf', 'uk', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.vi.xlf', 'vi', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_CN.xlf', 'zh_CN', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_TW.xlf', 'zh_TW', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ar.xlf', 'ar', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.bg.xlf', 'bg', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ca.xlf', 'ca', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.cs.xlf', 'cs', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.da.xlf', 'da', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.de.xlf', 'de', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.el.xlf', 'el', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.en.xlf', 'en', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.es.xlf', 'es', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.et.xlf', 'et', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.eu.xlf', 'eu', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fa.xlf', 'fa', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fi.xlf', 'fi', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fr.xlf', 'fr', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.gl.xlf', 'gl', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.he.xlf', 'he', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hr.xlf', 'hr', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hu.xlf', 'hu', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hy.xlf', 'hy', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.id.xlf', 'id', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.it.xlf', 'it', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ja.xlf', 'ja', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lb.xlf', 'lb', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lt.xlf', 'lt', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lv.xlf', 'lv', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.mn.xlf', 'mn', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nb.xlf', 'nb', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nl.xlf', 'nl', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pl.xlf', 'pl', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt.xlf', 'pt', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt_BR.xlf', 'pt_BR', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ro.xlf', 'ro', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ru.xlf', 'ru', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sk.xlf', 'sk', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sl.xlf', 'sl', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Latn.xlf', 'sr_Latn', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sv.xlf', 'sv', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.uk.xlf', 'uk', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.zh_CN.xlf', 'zh_CN', 'validators');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ar.xlf', 'ar', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ca.xlf', 'ca', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.cs.xlf', 'cs', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.da.xlf', 'da', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.de.xlf', 'de', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.el.xlf', 'el', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.en.xlf', 'en', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.es.xlf', 'es', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.fa.xlf', 'fa', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.fr.xlf', 'fr', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.gl.xlf', 'gl', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.hu.xlf', 'hu', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.it.xlf', 'it', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.lb.xlf', 'lb', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.nl.xlf', 'nl', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.no.xlf', 'no', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pl.xlf', 'pl', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pt_BR.xlf', 'pt_BR', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pt_PT.xlf', 'pt_PT', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ro.xlf', 'ro', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ru.xlf', 'ru', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sk.xlf', 'sk', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sl.xlf', 'sl', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sr_Cyrl.xlf', 'sr_Cyrl', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sr_Latn.xlf', 'sr_Latn', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sv.xlf', 'sv', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.tr.xlf', 'tr', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ua.xlf', 'ua', 'security');
-        $instance->addResource('xlf', 'C:\\wamp\\www\\PartyMember\\src\\Ibw\\PartymemberBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.bg.xliff', 'bg', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ca.xliff', 'ca', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.cs.xliff', 'cs', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.de.xliff', 'de', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.en.xliff', 'en', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.es.xliff', 'es', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.eu.xliff', 'eu', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.fa.xliff', 'fa', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.fr.xliff', 'fr', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.hr.xliff', 'hr', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.hu.xliff', 'hu', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.it.xliff', 'it', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ja.xliff', 'ja', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.lb.xliff', 'lb', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.lt.xliff', 'lt', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.nl.xliff', 'nl', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pl.xliff', 'pl', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pt.xliff', 'pt', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pt_BR.xliff', 'pt_BR', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ro.xliff', 'ro', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ru.xliff', 'ru', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.sk.xliff', 'sk', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.sl.xliff', 'sl', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.uk.xliff', 'uk', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.zh_CN.xliff', 'zh_CN', 'SonataCoreBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.bg.xliff', 'bg', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ca.xliff', 'ca', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.cs.xliff', 'cs', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.de.xliff', 'de', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.en.xliff', 'en', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.es.xliff', 'es', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.eu.xliff', 'eu', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.fa.xliff', 'fa', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.fr.xliff', 'fr', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.hr.xliff', 'hr', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.hu.xliff', 'hu', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.it.xliff', 'it', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ja.xliff', 'ja', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.lb.xliff', 'lb', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.lt.xliff', 'lt', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.nl.xliff', 'nl', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pl.xliff', 'pl', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pt.xliff', 'pt', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pt_BR.xliff', 'pt_BR', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ro.xliff', 'ro', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ru.xliff', 'ru', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.sk.xliff', 'sk', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.sl.xliff', 'sl', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.uk.xliff', 'uk', 'SonataAdminBundle');
-        $instance->addResource('xliff', 'C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.zh_CN.xliff', 'zh_CN', 'SonataAdminBundle');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.af.xlf', 'af', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ar.xlf', 'ar', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.bg.xlf', 'bg', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ca.xlf', 'ca', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cs.xlf', 'cs', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cy.xlf', 'cy', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.da.xlf', 'da', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.de.xlf', 'de', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.el.xlf', 'el', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.en.xlf', 'en', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.es.xlf', 'es', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.et.xlf', 'et', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.eu.xlf', 'eu', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fa.xlf', 'fa', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fi.xlf', 'fi', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fr.xlf', 'fr', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.gl.xlf', 'gl', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.he.xlf', 'he', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hr.xlf', 'hr', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hu.xlf', 'hu', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hy.xlf', 'hy', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.id.xlf', 'id', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.it.xlf', 'it', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ja.xlf', 'ja', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lb.xlf', 'lb', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lt.xlf', 'lt', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.mn.xlf', 'mn', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nb.xlf', 'nb', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nl.xlf', 'nl', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.no.xlf', 'no', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pl.xlf', 'pl', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt.xlf', 'pt', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt_BR.xlf', 'pt_BR', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ro.xlf', 'ro', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ru.xlf', 'ru', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sk.xlf', 'sk', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sl.xlf', 'sl', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sq.xlf', 'sq', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Latn.xlf', 'sr_Latn', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sv.xlf', 'sv', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.th.xlf', 'th', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.tr.xlf', 'tr', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.uk.xlf', 'uk', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.vi.xlf', 'vi', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_CN.xlf', 'zh_CN', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_TW.xlf', 'zh_TW', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ar.xlf', 'ar', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.bg.xlf', 'bg', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ca.xlf', 'ca', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.cs.xlf', 'cs', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.da.xlf', 'da', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.de.xlf', 'de', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.el.xlf', 'el', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.en.xlf', 'en', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.es.xlf', 'es', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.et.xlf', 'et', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.eu.xlf', 'eu', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fa.xlf', 'fa', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fi.xlf', 'fi', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fr.xlf', 'fr', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.gl.xlf', 'gl', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.he.xlf', 'he', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hr.xlf', 'hr', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hu.xlf', 'hu', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hy.xlf', 'hy', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.id.xlf', 'id', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.it.xlf', 'it', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ja.xlf', 'ja', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lb.xlf', 'lb', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lt.xlf', 'lt', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lv.xlf', 'lv', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.mn.xlf', 'mn', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nb.xlf', 'nb', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nl.xlf', 'nl', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pl.xlf', 'pl', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt.xlf', 'pt', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt_BR.xlf', 'pt_BR', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ro.xlf', 'ro', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ru.xlf', 'ru', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sk.xlf', 'sk', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sl.xlf', 'sl', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Latn.xlf', 'sr_Latn', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sv.xlf', 'sv', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.uk.xlf', 'uk', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.zh_CN.xlf', 'zh_CN', 'validators');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ar.xlf', 'ar', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ca.xlf', 'ca', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.cs.xlf', 'cs', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.da.xlf', 'da', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.de.xlf', 'de', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.el.xlf', 'el', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.en.xlf', 'en', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.es.xlf', 'es', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.fa.xlf', 'fa', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.fr.xlf', 'fr', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.gl.xlf', 'gl', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.hu.xlf', 'hu', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.it.xlf', 'it', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.lb.xlf', 'lb', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.nl.xlf', 'nl', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.no.xlf', 'no', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pl.xlf', 'pl', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pt_BR.xlf', 'pt_BR', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pt_PT.xlf', 'pt_PT', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ro.xlf', 'ro', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ru.xlf', 'ru', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sk.xlf', 'sk', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sl.xlf', 'sl', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sr_Cyrl.xlf', 'sr_Cyrl', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sr_Latn.xlf', 'sr_Latn', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sv.xlf', 'sv', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.tr.xlf', 'tr', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ua.xlf', 'ua', 'security');
+        $instance->addResource('xlf', 'E:\\workspace\\git\\PartyMember\\PartyMember\\src\\Ibw\\PartymemberBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.bg.xliff', 'bg', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ca.xliff', 'ca', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.cs.xliff', 'cs', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.de.xliff', 'de', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.en.xliff', 'en', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.es.xliff', 'es', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.eu.xliff', 'eu', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.fa.xliff', 'fa', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.fr.xliff', 'fr', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.hr.xliff', 'hr', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.hu.xliff', 'hu', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.it.xliff', 'it', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ja.xliff', 'ja', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.lb.xliff', 'lb', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.lt.xliff', 'lt', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.nl.xliff', 'nl', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pl.xliff', 'pl', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pt.xliff', 'pt', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pt_BR.xliff', 'pt_BR', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ro.xliff', 'ro', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ru.xliff', 'ru', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.sk.xliff', 'sk', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.sl.xliff', 'sl', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.uk.xliff', 'uk', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.zh_CN.xliff', 'zh_CN', 'SonataCoreBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.bg.xliff', 'bg', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ca.xliff', 'ca', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.cs.xliff', 'cs', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.de.xliff', 'de', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.en.xliff', 'en', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.es.xliff', 'es', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.eu.xliff', 'eu', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.fa.xliff', 'fa', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.fr.xliff', 'fr', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.hr.xliff', 'hr', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.hu.xliff', 'hu', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.it.xliff', 'it', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ja.xliff', 'ja', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.lb.xliff', 'lb', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.lt.xliff', 'lt', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.nl.xliff', 'nl', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pl.xliff', 'pl', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pt.xliff', 'pt', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pt_BR.xliff', 'pt_BR', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ro.xliff', 'ro', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ru.xliff', 'ru', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.sk.xliff', 'sk', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.sl.xliff', 'sl', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.uk.xliff', 'uk', 'SonataAdminBundle');
+        $instance->addResource('xliff', 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.zh_CN.xliff', 'zh_CN', 'SonataAdminBundle');
         return $instance;
     }
     protected function getTwigService()
     {
-        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => false, 'strict_variables' => false, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => 'C:/wamp/www/PartyMember/app/cache/prod/twig', 'charset' => 'UTF-8', 'paths' => array()));
+        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => false, 'strict_variables' => false, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => 'E:/workspace/git/PartyMember/PartyMember/app/cache/prod/twig', 'charset' => 'UTF-8', 'paths' => array()));
         $instance->addExtension(new \Symfony\Bundle\SecurityBundle\Twig\Extension\LogoutUrlExtension($this->get('templating.helper.logout_url')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\SecurityExtension($this->get('security.context', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($this->get('translator.default')));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\AssetsExtension($this));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\ActionsExtension($this));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, 'C:/wamp/www/PartyMember/app', 'UTF-8'));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, 'E:/workspace/git/PartyMember/PartyMember/app', 'UTF-8'));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($this->get('router')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\StopwatchExtension(NULL));
@@ -1745,19 +1742,20 @@ class appProdProjectContainer extends Container
     protected function getTwig_LoaderService()
     {
         $this->services['twig.loader'] = $instance = new \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader($this->get('templating.locator'), $this->get('templating.name_parser'));
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views', 'Framework');
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views', 'Security');
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views', 'Twig');
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\src\\Ibw\\PartymemberBundle/Resources/views', 'IbwPartymember');
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/views', 'SonataCore');
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/views', 'SonataAdmin');
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\block-bundle/Resources/views', 'SonataBlock');
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\vendor\\sonata-project\\doctrine-orm-admin-bundle/Resources/views', 'SonataDoctrineORMAdmin');
-        $instance->addPath('C:/wamp/www/PartyMember/app/Resources/views');
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Bridge\\Twig/Resources/views/Form');
-        $instance->addPath('C:\\wamp\\www\\PartyMember\\vendor\\knplabs\\knp-menu\\src\\Knp\\Menu/Resources/views');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views', 'Framework');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views', 'Security');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views', 'Twig');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\src\\Ibw\\PartymemberBundle/Resources/views', 'IbwPartymember');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\core-bundle/Resources/views', 'SonataCore');
+        $instance->addPath('E:/workspace/git/PartyMember/PartyMember/app/Resources/SonataAdminBundle/views', 'SonataAdmin');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\admin-bundle/Resources/views', 'SonataAdmin');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\block-bundle/Resources/views', 'SonataBlock');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\sonata-project\\doctrine-orm-admin-bundle/Resources/views', 'SonataDoctrineORMAdmin');
+        $instance->addPath('E:/workspace/git/PartyMember/PartyMember/app/Resources/views');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Bridge\\Twig/Resources/views/Form');
+        $instance->addPath('E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\knplabs\\knp-menu\\src\\Knp\\Menu/Resources/views');
         return $instance;
     }
     protected function getTwig_Translation_ExtractorService()
@@ -1778,7 +1776,7 @@ class appProdProjectContainer extends Container
     }
     protected function getAssetic_AssetFactoryService()
     {
-        return $this->services['assetic.asset_factory'] = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), 'C:/wamp/www/PartyMember/app/../web', false);
+        return $this->services['assetic.asset_factory'] = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), 'E:/workspace/git/PartyMember/PartyMember/app/../web', false);
     }
     protected function getControllerNameConverterService()
     {
@@ -1796,7 +1794,7 @@ class appProdProjectContainer extends Container
     }
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.in_memory'), new \Symfony\Component\Security\Core\User\UserChecker(), 'secured_area', $this->get('security.encoder_factory'), true)), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.main'), new \Symfony\Component\Security\Core\User\UserChecker(), 'secured_area', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('538c3d8d78847')), true);
         $instance->setEventDispatcher($this->get('event_dispatcher'));
         return $instance;
     }
@@ -1808,12 +1806,9 @@ class appProdProjectContainer extends Container
     {
         return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_ADMIN' => array(0 => 'ROLE_USER'), 'ROLE_SUPER_ADMIN' => array(0 => 'ROLE_USER', 1 => 'ROLE_ADMIN', 2 => 'ROLE_ALLOWED_TO_SWITCH')));
     }
-    protected function getSecurity_User_Provider_Concrete_InMemoryService()
+    protected function getSecurity_User_Provider_Concrete_MainService()
     {
-        $this->services['security.user.provider.concrete.in_memory'] = $instance = new \Symfony\Component\Security\Core\User\InMemoryUserProvider();
-        $instance->createUser(new \Symfony\Component\Security\Core\User\User('user', 'userpass', array(0 => 'ROLE_USER')));
-        $instance->createUser(new \Symfony\Component\Security\Core\User\User('admin', 'adminpass', array(0 => 'ROLE_ADMIN')));
-        return $instance;
+        return $this->services['security.user.provider.concrete.main'] = new \Symfony\Bridge\Doctrine\Security\User\EntityUserProvider($this->get('doctrine'), 'Ibw\\PartymemberBundle\\Entity\\User', 'username', NULL);
     }
     protected function getSession_Storage_MetadataBagService()
     {
@@ -1837,11 +1832,11 @@ class appProdProjectContainer extends Container
     }
     protected function getTemplating_LocatorService()
     {
-        return $this->services['templating.locator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator($this->get('file_locator'), 'C:/wamp/www/PartyMember/app/cache/prod');
+        return $this->services['templating.locator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator($this->get('file_locator'), 'E:/workspace/git/PartyMember/PartyMember/app/cache/prod');
     }
     protected function getValidator_Mapping_ClassMetadataFactoryService()
     {
-        return $this->services['validator.mapping.class_metadata_factory'] = new \Symfony\Component\Validator\Mapping\ClassMetadataFactory(new \Symfony\Component\Validator\Mapping\Loader\LoaderChain(array(0 => new \Symfony\Component\Validator\Mapping\Loader\AnnotationLoader($this->get('annotation_reader')), 1 => new \Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader(), 2 => new \Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader(array(0 => 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml')), 3 => new \Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader(array()))), NULL);
+        return $this->services['validator.mapping.class_metadata_factory'] = new \Symfony\Component\Validator\Mapping\ClassMetadataFactory(new \Symfony\Component\Validator\Mapping\Loader\LoaderChain(array(0 => new \Symfony\Component\Validator\Mapping\Loader\AnnotationLoader($this->get('annotation_reader')), 1 => new \Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader(), 2 => new \Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader(array(0 => 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml')), 3 => new \Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader(array()))), NULL);
     }
     protected function getValidator_ValidatorFactoryService()
     {
@@ -1874,12 +1869,12 @@ class appProdProjectContainer extends Container
     protected function getDefaultParameters()
     {
         return array(
-            'kernel.root_dir' => 'C:/wamp/www/PartyMember/app',
+            'kernel.root_dir' => 'E:/workspace/git/PartyMember/PartyMember/app',
             'kernel.environment' => 'prod',
             'kernel.debug' => false,
             'kernel.name' => 'ap_',
-            'kernel.cache_dir' => 'C:/wamp/www/PartyMember/app/cache/prod',
-            'kernel.logs_dir' => 'C:/wamp/www/PartyMember/app/logs',
+            'kernel.cache_dir' => 'E:/workspace/git/PartyMember/PartyMember/app/cache/prod',
+            'kernel.logs_dir' => 'E:/workspace/git/PartyMember/PartyMember/app/logs',
             'kernel.bundles' => array(
                 'FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle',
                 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle',
@@ -1981,7 +1976,7 @@ class appProdProjectContainer extends Container
             'session_listener.class' => 'Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener',
             'session.storage.options' => array(
             ),
-            'session.save_path' => 'C:/wamp/www/PartyMember/app/cache/prod/sessions',
+            'session.save_path' => 'E:/workspace/git/PartyMember/PartyMember/app/cache/prod/sessions',
             'session.metadata.update_threshold' => '0',
             'security.secure_random.class' => 'Symfony\\Component\\Security\\Core\\Util\\SecureRandom',
             'form.resolved_type_factory.class' => 'Symfony\\Component\\Form\\ResolvedFormTypeFactory',
@@ -2039,7 +2034,7 @@ class appProdProjectContainer extends Container
             'validator.mapping.loader.yaml_files_loader.class' => 'Symfony\\Component\\Validator\\Mapping\\Loader\\YamlFilesLoader',
             'validator.validator_factory.class' => 'Symfony\\Bundle\\FrameworkBundle\\Validator\\ConstraintValidatorFactory',
             'validator.mapping.loader.xml_files_loader.mapping_files' => array(
-                0 => 'C:\\wamp\\www\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml',
+                0 => 'E:\\workspace\\git\\PartyMember\\PartyMember\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml',
             ),
             'validator.mapping.loader.yaml_files_loader.mapping_files' => array(
             ),
@@ -2068,7 +2063,7 @@ class appProdProjectContainer extends Container
             'router.request_context.host' => 'localhost',
             'router.request_context.scheme' => 'http',
             'router.request_context.base_url' => '',
-            'router.resource' => 'C:/wamp/www/PartyMember/app/config/routing.yml',
+            'router.resource' => 'E:/workspace/git/PartyMember/PartyMember/app/config/routing.yml',
             'router.cache_class_prefix' => 'appProd',
             'request_listener.http_port' => 80,
             'request_listener.https_port' => 443,
@@ -2188,7 +2183,7 @@ class appProdProjectContainer extends Container
                 'exception_controller' => 'twig.controller.exception:showAction',
                 'autoescape_service' => NULL,
                 'autoescape_service_method' => NULL,
-                'cache' => 'C:/wamp/www/PartyMember/app/cache/prod/twig',
+                'cache' => 'E:/workspace/git/PartyMember/PartyMember/app/cache/prod/twig',
                 'charset' => 'UTF-8',
                 'paths' => array(
                 ),
@@ -2253,7 +2248,7 @@ class appProdProjectContainer extends Container
             'swiftmailer.mailer.default.transport.smtp.auth_mode' => NULL,
             'swiftmailer.mailer.default.transport.smtp.timeout' => 30,
             'swiftmailer.mailer.default.transport.smtp.source_ip' => NULL,
-            'swiftmailer.spool.default.memory.path' => 'C:/wamp/www/PartyMember/app/cache/prod/swiftmailer/spool/default',
+            'swiftmailer.spool.default.memory.path' => 'E:/workspace/git/PartyMember/PartyMember/app/cache/prod/swiftmailer/spool/default',
             'swiftmailer.mailer.default.spool.enabled' => true,
             'swiftmailer.mailer.default.plugin.impersonate' => NULL,
             'swiftmailer.mailer.default.single_address' => NULL,
@@ -2278,7 +2273,7 @@ class appProdProjectContainer extends Container
             'assetic.value_supplier.class' => 'Symfony\\Bundle\\AsseticBundle\\DefaultValueSupplier',
             'assetic.node.paths' => array(
             ),
-            'assetic.cache_dir' => 'C:/wamp/www/PartyMember/app/cache/prod/assetic',
+            'assetic.cache_dir' => 'E:/workspace/git/PartyMember/PartyMember/app/cache/prod/assetic',
             'assetic.bundles' => array(
             ),
             'assetic.twig_extension.class' => 'Symfony\\Bundle\\AsseticBundle\\Twig\\AsseticExtension',
@@ -2289,8 +2284,8 @@ class appProdProjectContainer extends Container
             'assetic.debug' => false,
             'assetic.use_controller' => false,
             'assetic.enable_profiler' => false,
-            'assetic.read_from' => 'C:/wamp/www/PartyMember/app/../web',
-            'assetic.write_to' => 'C:/wamp/www/PartyMember/app/../web',
+            'assetic.read_from' => 'E:/workspace/git/PartyMember/PartyMember/app/../web',
+            'assetic.write_to' => 'E:/workspace/git/PartyMember/PartyMember/app/../web',
             'assetic.variables' => array(
             ),
             'assetic.java.bin' => 'C:\\Windows\\system32\\java.EXE',
@@ -2355,7 +2350,7 @@ class appProdProjectContainer extends Container
             'doctrine.orm.naming_strategy.default.class' => 'Doctrine\\ORM\\Mapping\\DefaultNamingStrategy',
             'doctrine.orm.naming_strategy.underscore.class' => 'Doctrine\\ORM\\Mapping\\UnderscoreNamingStrategy',
             'doctrine.orm.auto_generate_proxy_classes' => false,
-            'doctrine.orm.proxy_dir' => 'C:/wamp/www/PartyMember/app/cache/prod/doctrine/orm/Proxies',
+            'doctrine.orm.proxy_dir' => 'E:/workspace/git/PartyMember/PartyMember/app/cache/prod/doctrine/orm/Proxies',
             'doctrine.orm.proxy_namespace' => 'Proxies',
             'sensio_framework_extra.view.guesser.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Templating\\TemplateGuesser',
             'sensio_framework_extra.controller.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\ControllerListener',
@@ -2401,10 +2396,17 @@ class appProdProjectContainer extends Container
             ),
             'sonata.admin.configuration.dashboard_blocks' => array(
                 0 => array(
+                    'position' => 'center',
+                    'type' => 'sonata.block.service.text',
+                    'settings' => array(
+                        'content' => '<h2>欢迎!</h2>复旦大学数学科学学院党员管理信息系统',
+                    ),
+                ),
+                1 => array(
                     'position' => 'left',
+                    'type' => 'sonata.admin.block.admin_list',
                     'settings' => array(
                     ),
-                    'type' => 'sonata.admin.block.admin_list',
                 ),
             ),
             'sonata.admin.security.acl_user_manager' => NULL,

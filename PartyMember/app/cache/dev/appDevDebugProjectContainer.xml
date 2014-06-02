@@ -548,9 +548,16 @@
     <parameter key="sonata.admin.configuration.dashboard_groups" type="collection"/>
     <parameter key="sonata.admin.configuration.dashboard_blocks" type="collection">
       <parameter type="collection">
+        <parameter key="position">center</parameter>
+        <parameter key="type">sonata.block.service.text</parameter>
+        <parameter key="settings" type="collection">
+          <parameter key="content">&lt;h2&gt;欢迎!&lt;/h2&gt;复旦大学数学科学学院党员管理信息系统</parameter>
+        </parameter>
+      </parameter>
+      <parameter type="collection">
         <parameter key="position">left</parameter>
-        <parameter key="settings" type="collection"/>
         <parameter key="type">sonata.admin.block.admin_list</parameter>
+        <parameter key="settings" type="collection"/>
       </parameter>
     </parameter>
     <parameter key="sonata.admin.security.acl_user_manager">null</parameter>
@@ -2884,7 +2891,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>537988f4d4090</argument>
+            <argument>538c3de3b8f45</argument>
           </service>
         </argument>
       </argument>
@@ -3138,7 +3145,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>537988f4d4090</argument>
+            <argument>538c3de3b8f45</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3708,10 +3715,13 @@
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
     </service>
     <service id="ibw.partymember.admin.partymember" class="Ibw\PartymemberBundle\Admin\PartymemberAdmin" scope="prototype">
-      <tag name="sonata.admin" manager_type="orm" group="partymember" label="Partymembers"/>
+      <tag name="sonata.admin" manager_type="orm" group="党员" label="党员信息"/>
       <argument>ibw.partymember.admin.partymember</argument>
       <argument>Ibw\PartymemberBundle\Entity\Partymember</argument>
       <argument>IbwPartymemberBundle:PartymemberAdmin</argument>
+      <call method="setLabelTranslatorStrategy">
+        <argument type="service" id="sonata.admin.label.strategy.underscore"/>
+      </call>
       <call method="setManagerType">
         <argument>orm</argument>
       </call>
@@ -3751,11 +3761,8 @@
       <call method="setRouteBuilder">
         <argument type="service" id="sonata.admin.route.path_info"/>
       </call>
-      <call method="setLabelTranslatorStrategy">
-        <argument type="service" id="sonata.admin.label.strategy.native"/>
-      </call>
       <call method="setLabel">
-        <argument>Partymembers</argument>
+        <argument>党员信息</argument>
       </call>
       <call method="setPersistFilters">
         <argument>false</argument>
@@ -3950,8 +3957,8 @@
       </call>
       <call method="setAdminGroups">
         <argument type="collection">
-          <argument key="partymember" type="collection">
-            <argument key="label">partymember</argument>
+          <argument key="党员" type="collection">
+            <argument key="label">党员</argument>
             <argument key="label_catalogue">SonataAdminBundle</argument>
             <argument key="roles" type="collection"/>
             <argument key="items" type="collection">
