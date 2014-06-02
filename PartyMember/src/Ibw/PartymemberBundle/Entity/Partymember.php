@@ -102,11 +102,6 @@ class Partymember
     /**
      * @var string
      */
-    private $class;
-
-    /**
-     * @var string
-     */
     private $pre_department;
 
     /**
@@ -157,7 +152,7 @@ class Partymember
     /**
      * @var string
      */
-    private $con1_phone;
+    private $contact1_phone;
 
     /**
      * @var string
@@ -167,7 +162,7 @@ class Partymember
     /**
      * @var string
      */
-    private $con2_phone;
+    private $contact2_phone;
 
     /**
      * @var string
@@ -238,6 +233,11 @@ class Partymember
      * @var \DateTime
      */
     private $updated_at;
+
+    /**
+     * @var \Ibw\PartymemberBundle\Entity\PartymemberCategory
+     */
+    private $partymember_category;
 
 
     /**
@@ -642,29 +642,6 @@ class Partymember
     }
 
     /**
-     * Set class
-     *
-     * @param string $class
-     * @return Partymember
-     */
-    public function setClass($class)
-    {
-        $this->class = $class;
-
-        return $this;
-    }
-
-    /**
-     * Get class
-     *
-     * @return string 
-     */
-    public function getClass()
-    {
-        return $this->class;
-    }
-
-    /**
      * Set pre_department
      *
      * @param string $preDepartment
@@ -895,26 +872,26 @@ class Partymember
     }
 
     /**
-     * Set con1_phone
+     * Set contact1_phone
      *
-     * @param string $con1Phone
+     * @param string $contact1Phone
      * @return Partymember
      */
-    public function setCon1Phone($con1Phone)
+    public function setContact1Phone($contact1Phone)
     {
-        $this->con1_phone = $con1Phone;
+        $this->contact1_phone = $contact1Phone;
 
         return $this;
     }
 
     /**
-     * Get con1_phone
+     * Get contact1_phone
      *
      * @return string 
      */
-    public function getCon1Phone()
+    public function getContact1Phone()
     {
-        return $this->con1_phone;
+        return $this->contact1_phone;
     }
 
     /**
@@ -941,26 +918,26 @@ class Partymember
     }
 
     /**
-     * Set con2_phone
+     * Set contact2_phone
      *
-     * @param string $con2Phone
+     * @param string $contact2Phone
      * @return Partymember
      */
-    public function setCon2Phone($con2Phone)
+    public function setContact2Phone($contact2Phone)
     {
-        $this->con2_phone = $con2Phone;
+        $this->contact2_phone = $contact2Phone;
 
         return $this;
     }
 
     /**
-     * Get con2_phone
+     * Get contact2_phone
      *
      * @return string 
      */
-    public function getCon2Phone()
+    public function getContact2Phone()
     {
-        return $this->con2_phone;
+        return $this->contact2_phone;
     }
 
     /**
@@ -1284,14 +1261,37 @@ class Partymember
     {
         return $this->updated_at;
     }
+
+    /**
+     * Set partymember_category
+     *
+     * @param \Ibw\PartymemberBundle\Entity\PartymemberCategory $partymemberCategory
+     * @return Partymember
+     */
+    public function setPartymemberCategory(\Ibw\PartymemberBundle\Entity\PartymemberCategory $partymemberCategory = null)
+    {
+        $this->partymember_category = $partymemberCategory;
+
+        return $this;
+    }
+
+    /**
+     * Get partymember_category
+     *
+     * @return \Ibw\PartymemberBundle\Entity\PartymemberCategory 
+     */
+    public function getPartymemberCategory()
+    {
+        return $this->partymember_category;
+    }
     /**
      * @ORM\PrePersist
      */
     public function setCreatedAtValue()
     {
         // Add your code here
-       date_default_timezone_set('prc');
-       $this->created_at=new \DateTime(date('Y-m-d H:i:s', time()));
+    	date_default_timezone_set('prc');
+    	$this->created_at = new \DateTime();
     }
 
     /**
@@ -1301,6 +1301,6 @@ class Partymember
     {
         // Add your code here
     	date_default_timezone_set('prc');
-    	$this->updated_at=new \DateTime(date('Y-m-d H:i:s', time()));
+    	$this->updated_at = new \DateTime();
     }
 }

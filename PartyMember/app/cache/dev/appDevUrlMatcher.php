@@ -268,40 +268,81 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CoreController::searchAction',  '_route' => 'sonata_admin_search',);
             }
 
-            if (0 === strpos($pathinfo, '/admin/ibw/partymember/partymember')) {
-                // admin_ibw_partymember_partymember_list
-                if ($pathinfo === '/admin/ibw/partymember/partymember/list') {
-                    return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::listAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_list',  '_route' => 'admin_ibw_partymember_partymember_list',);
+            if (0 === strpos($pathinfo, '/admin/ibw/partymember')) {
+                if (0 === strpos($pathinfo, '/admin/ibw/partymember/partymember')) {
+                    // admin_ibw_partymember_partymember_list
+                    if ($pathinfo === '/admin/ibw/partymember/partymember/list') {
+                        return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::listAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_list',  '_route' => 'admin_ibw_partymember_partymember_list',);
+                    }
+
+                    // admin_ibw_partymember_partymember_create
+                    if ($pathinfo === '/admin/ibw/partymember/partymember/create') {
+                        return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::createAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_create',  '_route' => 'admin_ibw_partymember_partymember_create',);
+                    }
+
+                    // admin_ibw_partymember_partymember_batch
+                    if ($pathinfo === '/admin/ibw/partymember/partymember/batch') {
+                        return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::batchAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_batch',  '_route' => 'admin_ibw_partymember_partymember_batch',);
+                    }
+
+                    // admin_ibw_partymember_partymember_edit
+                    if (preg_match('#^/admin/ibw/partymember/partymember/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_ibw_partymember_partymember_edit')), array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::editAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_edit',));
+                    }
+
+                    // admin_ibw_partymember_partymember_delete
+                    if (preg_match('#^/admin/ibw/partymember/partymember/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_ibw_partymember_partymember_delete')), array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::deleteAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_delete',));
+                    }
+
+                    // admin_ibw_partymember_partymember_show
+                    if (preg_match('#^/admin/ibw/partymember/partymember/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_ibw_partymember_partymember_show')), array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::showAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_show',));
+                    }
+
+                    // admin_ibw_partymember_partymember_export
+                    if ($pathinfo === '/admin/ibw/partymember/partymember/export') {
+                        return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::exportAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_export',  '_route' => 'admin_ibw_partymember_partymember_export',);
+                    }
+
                 }
 
-                // admin_ibw_partymember_partymember_create
-                if ($pathinfo === '/admin/ibw/partymember/partymember/create') {
-                    return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::createAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_create',  '_route' => 'admin_ibw_partymember_partymember_create',);
-                }
+                if (0 === strpos($pathinfo, '/admin/ibw/partymember/applypartymember')) {
+                    // admin_ibw_partymember_applypartymember_list
+                    if ($pathinfo === '/admin/ibw/partymember/applypartymember/list') {
+                        return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\ApplyPartymemberAdminController::listAction',  '_sonata_admin' => 'ibw.partymember.admin.applypartymember',  '_sonata_name' => 'admin_ibw_partymember_applypartymember_list',  '_route' => 'admin_ibw_partymember_applypartymember_list',);
+                    }
 
-                // admin_ibw_partymember_partymember_batch
-                if ($pathinfo === '/admin/ibw/partymember/partymember/batch') {
-                    return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::batchAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_batch',  '_route' => 'admin_ibw_partymember_partymember_batch',);
-                }
+                    // admin_ibw_partymember_applypartymember_create
+                    if ($pathinfo === '/admin/ibw/partymember/applypartymember/create') {
+                        return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\ApplyPartymemberAdminController::createAction',  '_sonata_admin' => 'ibw.partymember.admin.applypartymember',  '_sonata_name' => 'admin_ibw_partymember_applypartymember_create',  '_route' => 'admin_ibw_partymember_applypartymember_create',);
+                    }
 
-                // admin_ibw_partymember_partymember_edit
-                if (preg_match('#^/admin/ibw/partymember/partymember/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_ibw_partymember_partymember_edit')), array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::editAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_edit',));
-                }
+                    // admin_ibw_partymember_applypartymember_batch
+                    if ($pathinfo === '/admin/ibw/partymember/applypartymember/batch') {
+                        return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\ApplyPartymemberAdminController::batchAction',  '_sonata_admin' => 'ibw.partymember.admin.applypartymember',  '_sonata_name' => 'admin_ibw_partymember_applypartymember_batch',  '_route' => 'admin_ibw_partymember_applypartymember_batch',);
+                    }
 
-                // admin_ibw_partymember_partymember_delete
-                if (preg_match('#^/admin/ibw/partymember/partymember/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_ibw_partymember_partymember_delete')), array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::deleteAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_delete',));
-                }
+                    // admin_ibw_partymember_applypartymember_edit
+                    if (preg_match('#^/admin/ibw/partymember/applypartymember/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_ibw_partymember_applypartymember_edit')), array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\ApplyPartymemberAdminController::editAction',  '_sonata_admin' => 'ibw.partymember.admin.applypartymember',  '_sonata_name' => 'admin_ibw_partymember_applypartymember_edit',));
+                    }
 
-                // admin_ibw_partymember_partymember_show
-                if (preg_match('#^/admin/ibw/partymember/partymember/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_ibw_partymember_partymember_show')), array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::showAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_show',));
-                }
+                    // admin_ibw_partymember_applypartymember_delete
+                    if (preg_match('#^/admin/ibw/partymember/applypartymember/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_ibw_partymember_applypartymember_delete')), array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\ApplyPartymemberAdminController::deleteAction',  '_sonata_admin' => 'ibw.partymember.admin.applypartymember',  '_sonata_name' => 'admin_ibw_partymember_applypartymember_delete',));
+                    }
 
-                // admin_ibw_partymember_partymember_export
-                if ($pathinfo === '/admin/ibw/partymember/partymember/export') {
-                    return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\PartymemberAdminController::exportAction',  '_sonata_admin' => 'ibw.partymember.admin.partymember',  '_sonata_name' => 'admin_ibw_partymember_partymember_export',  '_route' => 'admin_ibw_partymember_partymember_export',);
+                    // admin_ibw_partymember_applypartymember_show
+                    if (preg_match('#^/admin/ibw/partymember/applypartymember/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_ibw_partymember_applypartymember_show')), array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\ApplyPartymemberAdminController::showAction',  '_sonata_admin' => 'ibw.partymember.admin.applypartymember',  '_sonata_name' => 'admin_ibw_partymember_applypartymember_show',));
+                    }
+
+                    // admin_ibw_partymember_applypartymember_export
+                    if ($pathinfo === '/admin/ibw/partymember/applypartymember/export') {
+                        return array (  '_controller' => 'Ibw\\PartymemberBundle\\Controller\\ApplyPartymemberAdminController::exportAction',  '_sonata_admin' => 'ibw.partymember.admin.applypartymember',  '_sonata_name' => 'admin_ibw_partymember_applypartymember_export',  '_route' => 'admin_ibw_partymember_applypartymember_export',);
+                    }
+
                 }
 
             }

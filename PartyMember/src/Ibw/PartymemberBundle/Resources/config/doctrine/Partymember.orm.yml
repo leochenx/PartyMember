@@ -56,9 +56,6 @@ Ibw\PartymemberBundle\Entity\Partymember:
         state:
             type: string
             length: 8
-        class:
-            type: string
-            length: 8
         pre_department:
             type: string
             length: 16
@@ -82,13 +79,13 @@ Ibw\PartymemberBundle\Entity\Partymember:
         contact1:
             type: string
             length: 8
-        con1_phone:
+        contact1_phone:
             type: string
             length: 11
         contact2:
             type: string
             length: 8
-        con2_phone:
+        contact2_phone:
             type: string
             length: 11
         apply_no:
@@ -128,7 +125,14 @@ Ibw\PartymemberBundle\Entity\Partymember:
             type: datetime      
         updated_at:
             type: datetime
-            nullable: true                
+            nullable: true   
+    manyToOne:
+        partymember_category:
+            targetEntity: PartymemberCategory
+            inversedBy: partymembers
+            joinColumn:
+                name: category_id
+                referencedColumnName: id             
     lifecycleCallbacks:
         prePersist: [ setCreatedAtValue ]
         preUpdate: [ setUpdatedAtValue ]
