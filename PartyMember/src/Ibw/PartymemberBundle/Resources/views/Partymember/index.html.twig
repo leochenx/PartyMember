@@ -10,7 +10,6 @@
                 <th>学号</th>
                 <th>姓名</th>
                 <th>性别</th>
-                <th>党员类别</th>
                 <th>加入组织日期</th>
                 <th>转正日期</th>
                 <th>所属党支部</th>
@@ -25,7 +24,6 @@
                 <td>{{ entity.gender }}</td>
                 <td>{{ entity.name }}</td>
                 <td>{{ entity.gender }}</td>
-                <td>{{ entity.class }}</td>
                 <td>{% if entity.birthday %}{{ entity.birthday|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if entity.birthday %}{{ entity.birthday|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ entity.branch }}</td>

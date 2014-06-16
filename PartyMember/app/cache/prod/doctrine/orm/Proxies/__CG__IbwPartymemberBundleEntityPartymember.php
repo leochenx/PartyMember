@@ -64,10 +64,10 @@ class Partymember extends \Ibw\PartymemberBundle\Entity\Partymember implements \
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'student_no', 'name', 'gender', 'nation', 'birthplace', 'idcard', 'birthday', 'branch', 'mobile', 'home_phone', 'grade', 'major', 'enter_date', 'top_edu', 'top_edu_begin', 'top_edu_end', 'state', 'class', 'pre_department', 'pre_date', 'pre_due_date', 'duty', 'first_apply_date', 'recent_apply_date', 'activist_date', 'to_admin_date', 'training_date', 'contact1', 'con1_phone', 'contact2', 'con2_phone', 'apply_no', 'admit_date', 'approve_date', 'full_date', 'intro1', 'intro2', 'out_reason', 'out_type', 'out_department', 'out_department_name', 'out_department_code', 'remark', 'created_at', 'updated_at');
+            return array('__isInitialized__', 'id', 'student_no', 'name', 'gender', 'nation', 'birthplace', 'idcard', 'birthday', 'branch', 'mobile', 'home_phone', 'grade', 'major', 'enter_date', 'top_edu', 'top_edu_begin', 'top_edu_end', 'state', 'pre_department', 'pre_date', 'pre_due_date', 'duty', 'first_apply_date', 'recent_apply_date', 'activist_date', 'to_admin_date', 'training_date', 'contact1', 'contact1_phone', 'contact2', 'contact2_phone', 'apply_no', 'admit_date', 'approve_date', 'full_date', 'intro1', 'intro2', 'out_reason', 'out_type', 'out_department', 'out_department_name', 'out_department_code', 'remark', 'created_at', 'updated_at', 'partymember_category', 'partymember_branch');
         }
 
-        return array('__isInitialized__', 'id', 'student_no', 'name', 'gender', 'nation', 'birthplace', 'idcard', 'birthday', 'branch', 'mobile', 'home_phone', 'grade', 'major', 'enter_date', 'top_edu', 'top_edu_begin', 'top_edu_end', 'state', 'class', 'pre_department', 'pre_date', 'pre_due_date', 'duty', 'first_apply_date', 'recent_apply_date', 'activist_date', 'to_admin_date', 'training_date', 'contact1', 'con1_phone', 'contact2', 'con2_phone', 'apply_no', 'admit_date', 'approve_date', 'full_date', 'intro1', 'intro2', 'out_reason', 'out_type', 'out_department', 'out_department_name', 'out_department_code', 'remark', 'created_at', 'updated_at');
+        return array('__isInitialized__', 'id', 'student_no', 'name', 'gender', 'nation', 'birthplace', 'idcard', 'birthday', 'branch', 'mobile', 'home_phone', 'grade', 'major', 'enter_date', 'top_edu', 'top_edu_begin', 'top_edu_end', 'state', 'pre_department', 'pre_date', 'pre_due_date', 'duty', 'first_apply_date', 'recent_apply_date', 'activist_date', 'to_admin_date', 'training_date', 'contact1', 'contact1_phone', 'contact2', 'contact2_phone', 'apply_no', 'admit_date', 'approve_date', 'full_date', 'intro1', 'intro2', 'out_reason', 'out_type', 'out_department', 'out_department_name', 'out_department_code', 'remark', 'created_at', 'updated_at', 'partymember_category', 'partymember_branch');
     }
 
     /**
@@ -565,28 +565,6 @@ class Partymember extends \Ibw\PartymemberBundle\Entity\Partymember implements \
     /**
      * {@inheritDoc}
      */
-    public function setClass($class)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setClass', array($class));
-
-        return parent::setClass($class);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getClass()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getClass', array());
-
-        return parent::getClass();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function setPreDepartment($preDepartment)
     {
 
@@ -807,23 +785,23 @@ class Partymember extends \Ibw\PartymemberBundle\Entity\Partymember implements \
     /**
      * {@inheritDoc}
      */
-    public function setCon1Phone($con1Phone)
+    public function setContact1Phone($contact1Phone)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCon1Phone', array($con1Phone));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContact1Phone', array($contact1Phone));
 
-        return parent::setCon1Phone($con1Phone);
+        return parent::setContact1Phone($contact1Phone);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getCon1Phone()
+    public function getContact1Phone()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCon1Phone', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContact1Phone', array());
 
-        return parent::getCon1Phone();
+        return parent::getContact1Phone();
     }
 
     /**
@@ -851,23 +829,23 @@ class Partymember extends \Ibw\PartymemberBundle\Entity\Partymember implements \
     /**
      * {@inheritDoc}
      */
-    public function setCon2Phone($con2Phone)
+    public function setContact2Phone($contact2Phone)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCon2Phone', array($con2Phone));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContact2Phone', array($contact2Phone));
 
-        return parent::setCon2Phone($con2Phone);
+        return parent::setContact2Phone($contact2Phone);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getCon2Phone()
+    public function getContact2Phone()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCon2Phone', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContact2Phone', array());
 
-        return parent::getCon2Phone();
+        return parent::getContact2Phone();
     }
 
     /**
@@ -1181,6 +1159,28 @@ class Partymember extends \Ibw\PartymemberBundle\Entity\Partymember implements \
     /**
      * {@inheritDoc}
      */
+    public function setPartymemberCategory(\Ibw\PartymemberBundle\Entity\PartymemberCategory $partymemberCategory = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPartymemberCategory', array($partymemberCategory));
+
+        return parent::setPartymemberCategory($partymemberCategory);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPartymemberCategory()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPartymemberCategory', array());
+
+        return parent::getPartymemberCategory();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function setCreatedAtValue()
     {
 
@@ -1198,6 +1198,28 @@ class Partymember extends \Ibw\PartymemberBundle\Entity\Partymember implements \
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAtValue', array());
 
         return parent::setUpdatedAtValue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPartymemberBranch(\Ibw\PartymemberBundle\Entity\PartymemberBranch $partymemberBranch = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPartymemberBranch', array($partymemberBranch));
+
+        return parent::setPartymemberBranch($partymemberBranch);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPartymemberBranch()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPartymemberBranch', array());
+
+        return parent::getPartymemberBranch();
     }
 
 }

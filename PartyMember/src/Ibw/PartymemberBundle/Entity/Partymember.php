@@ -1303,4 +1303,32 @@ class Partymember
     	date_default_timezone_set('prc');
     	$this->updated_at = new \DateTime();
     }
+    /**
+     * @var \Ibw\PartymemberBundle\Entity\PartymemberBranch
+     */
+    private $partymember_branch;
+
+
+    /**
+     * Set partymember_branch
+     *
+     * @param \Ibw\PartymemberBundle\Entity\PartymemberBranch $partymemberBranch
+     * @return Partymember
+     */
+    public function setPartymemberBranch(\Ibw\PartymemberBundle\Entity\PartymemberBranch $partymemberBranch = null)
+    {
+        $this->partymember_branch = $partymemberBranch;
+
+        return $this;
+    }
+
+    /**
+     * Get partymember_branch
+     *
+     * @return \Ibw\PartymemberBundle\Entity\PartymemberBranch 
+     */
+    public function getPartymemberBranch()
+    {
+        return $this->partymember_branch;
+    }
 }

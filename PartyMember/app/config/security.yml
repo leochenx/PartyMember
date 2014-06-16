@@ -17,7 +17,7 @@ security:
                 default_target_path: sonata_admin_redirect
             logout:
                 path:   /logout
-                target: /
+                target: /admin
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
 

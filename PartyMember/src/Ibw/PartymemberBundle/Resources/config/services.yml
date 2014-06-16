@@ -14,8 +14,6 @@ services:
             - ~
             - Ibw\PartymemberBundle\Entity\Partymember
             - 'IbwPartymemberBundle:PartymemberAdmin'
-        calls:
-            - [ setLabelTranslatorStrategy, ["@sonata.admin.label.strategy.underscore"]]
 
     ibw.partymember.admin.applypartymember:
         class: Ibw\PartymemberBundle\Admin\ApplyPartymemberAdmin
@@ -25,3 +23,11 @@ services:
             - ~
             - Ibw\PartymemberBundle\Entity\ApplyPartymember
             - 'IbwPartymemberBundle:ApplyPartymemberAdmin'
+    ibw.partymember.admin.partymemberbranch:
+        class: Ibw\PartymemberBundle\Admin\PartymemberBranchAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 管理, label: 党支部信息 }
+        arguments:
+            - ~
+            - Ibw\PartymemberBundle\Entity\PartymemberBranch
+            - 'IbwPartymemberBundle:PartymemberBranchAdmin'            

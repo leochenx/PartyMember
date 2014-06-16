@@ -1,8 +1,9 @@
-ibw_partymember:
-    resource: "@IbwPartymemberBundle/Resources/config/routing.yml"
-    prefix:   /
+#ibw_partymember:
+#    resource: "@IbwPartymemberBundle/Resources/config/routing.yml"
+#    prefix:   /
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+#    prefix: /admin
     prefix: /admin
 
 _sonata_admin:
@@ -10,3 +11,10 @@ _sonata_admin:
     type: sonata_admin
     prefix: /admin
 
+login:
+    pattern:   /login
+    defaults:  { _controller: IbwPartymemberBundle:Default:login }
+login_check:
+    pattern:   /login_check
+logout:
+    pattern:   /logout

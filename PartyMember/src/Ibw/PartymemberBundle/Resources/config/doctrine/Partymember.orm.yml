@@ -27,9 +27,6 @@ Ibw\PartymemberBundle\Entity\Partymember:
             length: 32       
         birthday:
             type: datetime                                                               
-        branch:
-            type: string
-            length: 255    
         mobile:
             type: string
             length: 11
@@ -132,7 +129,13 @@ Ibw\PartymemberBundle\Entity\Partymember:
             inversedBy: partymembers
             joinColumn:
                 name: category_id
-                referencedColumnName: id             
+                referencedColumnName: id
+        partymember_branch:
+            targetEntity: PartymemberBranch
+            inversedBy: partymembers
+            joinColumn:
+                name: branch_id
+                referencedColumnName: id                               
     lifecycleCallbacks:
         prePersist: [ setCreatedAtValue ]
         preUpdate: [ setUpdatedAtValue ]
